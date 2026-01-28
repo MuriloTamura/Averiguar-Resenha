@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Averiguar Resenha</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Averiguar possível resenha</h1>
+        
+        <div class="imagem-container" id="imagemContainer">
+            <img src="images/jarvis resenha.jpeg" alt="Jarvis" id="imagemPrincipal" />
+        </div>
+        
+        <div class="frase-container" id="fraseContainer">
+            <p style="color: #999;">Clique no botão para averiguar resenha</p>
+        </div>
+        
+        <div class="loading" id="loading">
+            <img src="images/analisando-possivel-resenha.jpg" width="450" />
+            <div class="spinner"></div>
+            <p>Analisando...</p>
+        </div>
+        
+        <button id="btnRevelar" onclick="revelarFrase()">averiguar</button>
+        
+        <div class="tempo-restante" id="tempoRestante"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
