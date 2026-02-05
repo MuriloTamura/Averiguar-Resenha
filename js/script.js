@@ -90,9 +90,35 @@ function atualizarBotao() {
         
         tempoRestante.textContent = `Próxima averiguação disponível em ${horas}h ${minutos}min`;
     } else {
+        // Reseta para o estado inicial quando pode clicar novamente
         btnRevelar.disabled = false;
         btnRevelar.textContent = 'averiguar';
         tempoRestante.textContent = '';
+        resetarParaEstadoInicial();
+    }
+}
+
+function resetarParaEstadoInicial() {
+    const ultimoClique = localStorage.getItem('ultimoClique');
+    const hoje = new Date().toDateString();
+    
+    // Só reseta se o último clique foi em um dia diferente
+    if (ultimoClique && ultimoClique !== hoje) {
+        const fraseContainer = document.getElementById('fraseContainer');
+        const imagemContainer = document.getElementById('imagemContainer');
+        const imagemPrincipal = document.getElementById('imagemPrincipal');
+        
+        // Volta para a imagem inicial
+        imagemPrincipal.src = 'images/jarvis resenha.jpeg';
+        imagemPrincipal.alt = 'Jarvis';
+        imagemContainer.classList.remove('hidden');
+        
+        // Volta para o texto inicial
+        fraseContainer.innerHTML = '<p style="color: #999;">Clique no botão para averiguar resenha</p>';
+        fraseContainer.classList.remove('hidden');
+        
+        // Limpa o localStorage
+        localStorage.removeItem('fraseDodia');
     }
 }
 
